@@ -1,0 +1,18 @@
+version:0.0
+os:linux
+files:
+     - source: /index.html
+       destination: /var/www/html/
+hooks:
+  BeforeInstall:
+     - location:/root/Ansible1/scripts/install_dependencies
+       timeout: 300
+       runas: root
+     - location:/root/Ansible1/scripts/start_server
+       timeout: 300
+       runas: root
+  ApplicationStop:
+     - location:/root/Ansible1/scripts/stop_server
+       timeout: 300
+       runas: root
+
